@@ -1022,8 +1022,11 @@ def get_hive_data(url):
 
 def download_file(url, path):
     """
-    Download an individual file.
+    Download an individual file if the destination file doesn't exist
     """
+    if exists(path):
+      puts_safe(colored.yellow("Track already downloaded: ") + colored.white(track_data['title']))
+      return
 
     if url[0:2] == '//':
         url = 'https://' + url[2:]
