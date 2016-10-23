@@ -1025,8 +1025,8 @@ def download_file(url, path):
     Download an individual file if the destination file doesn't exist
     """
     if exists(path):
-      puts_safe(colored.yellow("Track already downloaded: ") + colored.white(track_data['title']))
-      return
+      puts_safe(colored.yellow("Track already downloaded:"))
+      return path
 
     if url[0:2] == '//':
         url = 'https://' + url[2:]
